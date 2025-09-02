@@ -44,4 +44,25 @@ class AuthController extends Controller
             ], 401);
         }
     }
+
+    public function profile()
+    {
+        return [
+            'success' => true,
+            'message' => "Profil berhasil diambil",
+            'data' => [
+                'profile' => auth()->guard()->user(),
+            ],
+        ];
+    }
+
+    public function logout()
+    {
+        auth()->guard()->logout();
+
+        return [
+            'success' => true,
+            'message' => "logout berhasil",
+        ];
+    }
 }

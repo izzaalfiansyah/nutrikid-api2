@@ -12,6 +12,7 @@
         "php": "^8.2",
         "firebase/php-jwt": "^6.11",
         "laravel/framework": "^12.0",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1"
     },
     "require-dev": {
@@ -30,6 +31,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
+            "app/Helpers/helper.php",
             "app/Helpers/calculate_result.php",
             "app/Helpers/calculate_z_score.php",
             "app/Helpers/calculate_status.php",
