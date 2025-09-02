@@ -13,14 +13,14 @@ class Measurement extends Model
 
     public $appends = ['student_age_month_total', 'z_score', 'status', 'suggestion_advices'];
 
-    public function student_age_month_total(): Attribute
+    public function studentAgeMonthTotal(): Attribute
     {
         return Attribute::make(get: function () {
             return $this->student_age * 12 + $this->student_age_month;
         });
     }
 
-    public function z_score(): Attribute
+    public function zScore(): Attribute
     {
         return Attribute::make(get: function () {
             return calculateZScore($this->student_bmi, $this->student_age_month_total, $this->student?->gender ?? "l");
@@ -34,7 +34,7 @@ class Measurement extends Model
         });
     }
 
-    public function suggestion_advices(): Attribute
+    public function suggestionAdvices(): Attribute
     {
         return Attribute::make(get: function () {
             return getSuggestionAdvices($this->z_score);

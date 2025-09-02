@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('student_age');
             $table->integer('student_age_month');
             $table->float('student_bmi');
-            $table->timestamp('deleted_at');
+            $table->timestamp('deleted_at')->nullable();
             $table->foreignId('creator_id')->references('id')->on('users');
             $table->timestamps();
         });

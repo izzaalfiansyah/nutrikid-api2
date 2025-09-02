@@ -9,8 +9,8 @@ function calculateResult(float $height, float $weight, $birth_date, string $gend
 
         $diff = Carbon::parse($created_at ?? time())->diff(Carbon::parse($birth_date));
         $age = $diff->y;
-        $age_month_total = $diff->m;
-        $age_month = $age_month_total - $age * 12;
+        $age_month = $diff->m;
+        $age_month_total = $age_month + $age * 12;
 
         $z_score = calculateZScore($bmi, $age_month, $gender);
         $status = calculateStatus($z_score);

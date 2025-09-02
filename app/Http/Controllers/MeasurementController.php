@@ -95,7 +95,7 @@ class MeasurementController extends Controller
             $data = [
                 'student_id' => $student->id,
                 'student_age' => $result['age'],
-                'student_age_month' => $result['student_age_month'],
+                'student_age_month' => $result['age_month'],
                 'student_height' => $student_height,
                 'student_weight' => $student_weight,
                 'student_bmi' => $result['bmi'],
@@ -135,7 +135,7 @@ class MeasurementController extends Controller
 
             $data = [
                 'student_age' => $result['age'],
-                'student_age_month' => $result['student_age_month'],
+                'student_age_month' => $result['age_month'],
                 'student_height' => $student_height,
                 'student_weight' => $student_weight,
                 'student_bmi' => $result['bmi'],
@@ -185,7 +185,7 @@ class MeasurementController extends Controller
     public function calculate(Request $req)
     {
         try {
-            $result = calculateResult($req->student_height, $req->student_weight, $req->birth_date, $req->gender, $req->created_at);
+            $result = calculateResult($req->height, $req->weight, $req->birth_date, $req->gender, $req->created_at);
 
             return response()->json([
                 'success' => true,

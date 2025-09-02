@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::post('/calculate', [MeasurementController::class, 'calculate']);
-Route::post('/default-zscore', [MeasurementController::class, 'getDefaultZScore']);
+Route::get('/default-zscore', [MeasurementController::class, 'getDefaultZScore']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, "logout"]);
 
