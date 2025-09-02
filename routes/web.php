@@ -22,6 +22,9 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, "logout"]);
 
 Route::middleware(AuthMiddleware::class)->get('/profile', [AuthController::class, 'profile']);
+Route::middleware(AuthMiddleware::class)->post('/profile', [AuthController::class, 'updateProfile']);
+Route::middleware(AuthMiddleware::class)->post('/change-password', [AuthController::class, 'changePassword']);
+Route::middleware(AuthMiddleware::class)->post('/refresh-token', [AuthController::class, 'refreshToken']);
 
 Route::post('/user/{id}/change-password', [UserController::class, 'changePassword']);
 Route::resource('/user', UserController::class, ['only' => ['index', 'show', 'store', 'update', 'destroy']]);
