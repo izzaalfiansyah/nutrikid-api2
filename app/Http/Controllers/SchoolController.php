@@ -9,7 +9,7 @@ class SchoolController extends Controller
 {
     public function index()
     {
-        $schools = School::all();
+        $schools = School::whereNull('deleted_at')->get();
 
         return [
             'success' => true,

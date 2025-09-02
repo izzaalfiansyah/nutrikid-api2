@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = ['nisn', 'nisn', 'birth_date', 'gender', 'deleted_at',];
+    protected $fillable = ['nisn', 'name', 'birth_date', 'gender', 'deleted_at', 'school_id'];
+
+    public $timestamps = false;
 
     public $with = ['school'];
 
@@ -21,17 +23,17 @@ class Student extends Model
         });
     }
 
-    public function age_month_total(): Attribute
+    public function ageMonthTotal(): Attribute
     {
         return Attribute::make(get: function () {
-            return Carbon::parse($this->birth_date)->diff(Carbon::now())->m;
+            return $this->age_month + $this->age * 12;
         });
     }
 
-    public function age_month(): Attribute
+    public function ageMonth(): Attribute
     {
         return Attribute::make(get: function () {
-            return $this->age_month_total - ($this->age * 12);
+            return Carbon::now()->diff(Carbon::parse($this->birth_date))->months;
         });
     }
 

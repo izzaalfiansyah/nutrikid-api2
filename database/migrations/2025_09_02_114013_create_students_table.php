@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('birth_date');
             $table->enum('gender', ['l', 'p']);
             $table->foreignId('school_id')->references('id')->on('schools');
-            $table->timestamp('deleted_at');
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
