@@ -98,7 +98,6 @@ class UserController extends Controller
             $user->update([
                 'name' => $request->name,
                 'username' => $request->username,
-                'password' => $request->password,
                 'school_id' => $request->school_id,
                 'phone' => $request->phone,
                 'role' => $request->role,
@@ -134,6 +133,35 @@ class UserController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => "gagal hapus pengguna",
+            ], 422);
+        }
+    }
+
+    public function changePassword(Request $req, $id)
+    {
+        try {
+            $user = User::find($id);
+            $auth = auth()->guard()->user();
+
+            if ($auth->role != 'admin' && $auth->id != $user->id) {
+                return response()->json([
+                    'success' => false,
+                    'message' => "Anda tidak memiliki hak untuk mengedit password",
+                ], 401);
+            }
+
+            $user->update([
+                'password' => $req->password,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => "password berhasil diedit",
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => "gagal mengedit password",
             ], 422);
         }
     }

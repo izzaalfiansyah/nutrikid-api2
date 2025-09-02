@@ -7,7 +7,7 @@ function calculateResult(float $height, float $weight, $birth_date, string $gend
     try {
         $bmi = $weight / (($height / 100) ** 2);
 
-        $diff = Carbon::parse($created_at)->diff(Carbon::parse($birth_date));
+        $diff = Carbon::parse($created_at ?? time())->diff(Carbon::parse($birth_date));
         $age = $diff->y;
         $age_month_total = $diff->m;
         $age_month = $age_month_total - $age * 12;
