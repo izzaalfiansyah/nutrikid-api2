@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Measurement;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -121,7 +122,7 @@ class UserController extends Controller
         try {
             $user = User::find($id);
             $user->update([
-                'deleted_at' => time(),
+                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
 
             return response()->json([

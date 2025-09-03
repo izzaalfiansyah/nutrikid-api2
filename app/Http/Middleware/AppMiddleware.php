@@ -18,7 +18,7 @@ class AppMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $appKey = env('APP_KEY');
+        $appKey = env('APP_API_KEY');
         $currentKey = $request->headers->get('X-App-Key');
 
         if ($appKey !== $currentKey) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\School;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SchoolController extends Controller
@@ -64,7 +65,7 @@ class SchoolController extends Controller
         try {
             $school = School::find($id);
             $school->update([
-                'deleted_at' => time(),
+                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
 
             return response()->json([
