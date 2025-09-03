@@ -5,6 +5,7 @@ use App\Http\Controllers\MeasurementController;
 use App\Http\Controllers\MeasurementSuggestionController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +38,5 @@ Route::resource('/measurement/{measurementId}/suggestion', MeasurementSuggestion
 Route::resource('/measurement', MeasurementController::class, ['only' => ['index', 'show', 'store', 'update', 'destroy']]);
 
 Route::resource('/measurement-suggestion', MeasurementSuggestionController::class, ['only' => ['index', 'store', 'update', 'destroy']]);
+
+Route::get('/team', [TeamController::class, 'index']);
