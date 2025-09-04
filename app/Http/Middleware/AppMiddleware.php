@@ -37,7 +37,9 @@ class AppMiddleware
 
             $user = User::find($payload->id);
 
-            auth()->guard()->login($user);
+            if ($user) {
+                auth()->guard()->setUser($user);
+            }
         } catch (\Exception $e) {
             auth()->guard()->logout();
             // do nothing
