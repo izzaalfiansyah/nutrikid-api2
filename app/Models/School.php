@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
-    protected $fillable = ["name"];
+    protected $fillable = ["name", "deleted_at"];
 
     public $timestamps = false;
 }
