@@ -13,7 +13,7 @@ class School extends Model
     protected function casts(): array
     {
         return [
-            'id' => "number",
+            'id' => "integer",
         ];
     }
 }
