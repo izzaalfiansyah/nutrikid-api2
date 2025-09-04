@@ -14,4 +14,12 @@ class MeasurementSuggestion extends Model
     {
         return $this->belongsTo(User::class, 'creator_id');
     }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => "integer",
+            'creator_id' => "integer",
+        ];
+    }
 }

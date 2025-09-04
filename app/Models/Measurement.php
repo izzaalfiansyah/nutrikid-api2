@@ -50,4 +50,18 @@ class Measurement extends Model
     {
         return $this->belongsTo(User::class, 'creator_id');
     }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => "integer",
+            'student_id' => "integer",
+            'creator_id' => "integer",
+            'student_height' => "float",
+            'student_weight' => "float",
+            'student_bmi' => "float",
+            'student_age' => "integer",
+            'student_age_month' => "integer",
+        ];
+    }
 }

@@ -41,4 +41,12 @@ class Student extends Model
     {
         return $this->belongsTo(School::class);
     }
+
+    protected function casts(): array
+    {
+        return [
+            'id' => "integer",
+            'school_id' => "integer",
+        ];
+    }
 }

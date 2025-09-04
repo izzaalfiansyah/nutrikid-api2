@@ -9,4 +9,11 @@ class School extends Model
     protected $fillable = ["name", "deleted_at"];
 
     public $timestamps = false;
+
+    protected function casts(): array
+    {
+        return [
+            'id' => "number",
+        ];
+    }
 }

@@ -22,7 +22,7 @@ class StudentController extends Controller
         $page = $request->page ?? 1;
         $skip = $limit * ($page - 1);
 
-        if (!$school_id && auth()->guard()->user()->role != "admin") {
+        if (!$school_id && auth()->guard()->user()?->role != "admin") {
             $school_id = auth()->guard()->user()->school_id;
         }
 

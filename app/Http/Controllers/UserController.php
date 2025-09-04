@@ -22,7 +22,7 @@ class UserController extends Controller
         $page = $request->page ?? 1;
         $skip = $limit * ($page - 1);
 
-        if (!$school_id && auth()->guard()->user()->role != "admin") {
+        if (!$school_id && auth()->guard()->user()?->role != "admin") {
             $school_id = auth()->guard()->user()->school_id;
         }
 
@@ -144,7 +144,7 @@ class UserController extends Controller
             $user = User::find($id);
             $auth = auth()->guard()->user();
 
-            if ($auth->role != 'admin' && $auth->id != $user->id) {
+            if ($auth?->role != 'admin' && $auth->id != $user->id) {
                 return response()->json([
                     'success' => false,
                     'message' => "Anda tidak memiliki hak untuk mengedit password",
