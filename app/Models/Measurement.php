@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Measurement extends Model
 {
-    protected $fillable = ["student_id", "student_height", "student_weight", "student_bmi", "student_age", "student_age_month", "deleted_at", 'creator_id'];
+    protected $fillable = ["student_id", "student_height", "student_weight", "student_bmi", "student_age", "student_age_month", "deleted_at", 'creator_id', 'created_at'];
 
     public $with = ['student', 'creator'];
 

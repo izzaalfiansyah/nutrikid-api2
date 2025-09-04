@@ -84,7 +84,7 @@ class StudentController extends Controller
                 'nisn' => $request->nisn,
                 'gender' => $request->gender,
                 'school_id' => $request->school_id,
-                'birth_date' => $request->birth_date,
+                'birth_date' => Carbon::parse($request->birth_date)->format("Y-m-d"),
             ]);
 
             return response()->json([
@@ -109,7 +109,7 @@ class StudentController extends Controller
                 'nisn' => $request->nisn,
                 'gender' => $request->gender,
                 'school_id' => $request->school_id,
-                'birth_date' => $request->birth_date,
+                'birth_date' => Carbon::parse($request->birth_date)->format("Y-m-d"),
             ]);
 
             return response()->json([

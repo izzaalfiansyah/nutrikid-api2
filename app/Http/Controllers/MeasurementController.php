@@ -64,8 +64,6 @@ class MeasurementController extends Controller
             ], 404);
         }
 
-        $measurement->measurement = Measurement::where('measurement_id', $id)->whereNull('deleted_at')->orderBy('created_at', 'desc')->first();
-
         return [
             'success' => true,
             'message' => "pengukuran berhasil diambil",
