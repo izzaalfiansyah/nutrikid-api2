@@ -103,13 +103,10 @@ class UserController extends Controller
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'role' => $request->role,
+                'school_id' => $request->school_id,
             ];
 
-            if ($request->school_id) {
-                $data['school_id'] = $request->school_id;
-            }
-
-            $user->update();
+            $user->update($data);
 
             return response()->json([
                 'success' => true,
