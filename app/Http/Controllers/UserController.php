@@ -127,6 +127,7 @@ class UserController extends Controller
             $user = User::find($id);
             $user->update([
                 'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'username' => Carbon::now()->format("YmdHis"),
             ]);
 
             return response()->json([
