@@ -70,14 +70,16 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
-            User::create([
+            $data = [
                 'name' => $request->name,
                 'username' => $request->username,
                 'password' => $request->password,
                 'school_id' => $request->school_id,
                 'phone' => $request->phone,
                 'role' => $request->role,
-            ]);
+            ];
+
+            User::create($data);
 
             return response()->json([
                 'success' => true,
@@ -96,13 +98,18 @@ class UserController extends Controller
     {
         try {
             $user = User::find($id);
-            $user->update([
+
+            $data = [
                 'name' => $request->name,
-                'username' => $request->username,
-                'school_id' => $request->school_id,
                 'phone' => $request->phone,
                 'role' => $request->role,
-            ]);
+            ];
+
+            if ($request->school_id) {
+                $data['school_id'] = $request->school_id;
+            }
+
+            $user->update();
 
             return response()->json([
                 'success' => true,
