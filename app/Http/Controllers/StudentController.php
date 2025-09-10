@@ -16,6 +16,7 @@ class StudentController extends Controller
         $query->whereNull('deleted_at');
 
         $school_id = $request->school_id;
+        $parent_id = $request->parent_id;
         $gender = $request->gender;
         $search = $request->search;
         $limit = $request->limit ?? 20;
@@ -28,6 +29,14 @@ class StudentController extends Controller
 
         if ($school_id) {
             $query->where('school_id', $school_id);
+        }
+
+        if (!$parent_id && auth()->guard()->user()?->role == 'parent') {
+            $parent_id = auth()->guard()->user()->id;
+        }
+
+        if ($parent_id) {
+            $query->where('parent_id', $parent_id);
         }
 
         if ($gender) {
