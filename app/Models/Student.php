@@ -12,7 +12,7 @@ class Student extends Model
 
     public $timestamps = false;
 
-    public $with = ['school'];
+    public $with = ['school', 'parent'];
 
     public $appends = ['age', 'age_month_total', 'age_month'];
 
@@ -40,6 +40,11 @@ class Student extends Model
     public function school()
     {
         return $this->belongsTo(School::class);
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(User::class, 'parent_id');
     }
 
     protected function casts(): array
