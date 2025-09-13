@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = ['nisn', 'name', 'birth_date', 'gender', 'deleted_at', 'school_id'];
+    protected $fillable = ['nisn', 'name', 'birth_date', 'gender', 'deleted_at', 'school_id', 'parent_id'];
 
     public $timestamps = false;
 

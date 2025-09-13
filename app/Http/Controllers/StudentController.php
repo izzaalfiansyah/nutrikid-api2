@@ -23,16 +23,18 @@ class StudentController extends Controller
         $page = $request->page ?? 1;
         $skip = $limit * ($page - 1);
 
-        if (!$school_id && auth()->guard()->user()?->role != "admin") {
-            $school_id = auth()->guard()->user()->school_id;
+        $user = auth()->guard()->user();
+
+        if (!$school_id && $user?->school_id) {
+            $school_id = $user->school_id;
         }
 
         if ($school_id) {
             $query->where('school_id', $school_id);
         }
 
-        if (!$parent_id && auth()->guard()->user()?->role == 'parent') {
-            $parent_id = auth()->guard()->user()->id;
+        if (!$parent_id && $user?->role == 'parent') {
+            $parent_id = $user?->id;
         }
 
         if ($parent_id) {

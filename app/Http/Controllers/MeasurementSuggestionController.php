@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Measurement;
 use App\Models\MeasurementSuggestion;
 use Illuminate\Http\Request;
 
