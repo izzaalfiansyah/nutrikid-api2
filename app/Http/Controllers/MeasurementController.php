@@ -11,9 +11,10 @@ class MeasurementController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Measurement::query();
+        $query = Measurement::select('measurements.*')
+            ->leftJoin('students', 'students.id', '=', 'measurements.student_id');
 
-        $query->whereNull('deleted_at');
+        $query->whereNull('measurements.deleted_at');
 
         $school_id = $request->school_id;
         $student_id = $request->student_id;
@@ -43,11 +44,11 @@ class MeasurementController extends Controller
         }
 
         if ($student_id) {
-            $query->where('student_id', $student_id);
+            $query->where('measurements.student_id', $student_id);
         }
 
         if ($start_date && $end_date) {
-            $query->whereBetween('created_at', [$start_date, $end_date]);
+            $query->whereBetween('measurements.created_at', [$start_date, $end_date]);
         }
 
         $total = $query->count();
