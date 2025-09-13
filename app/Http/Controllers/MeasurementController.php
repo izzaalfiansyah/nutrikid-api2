@@ -17,6 +17,7 @@ class MeasurementController extends Controller
 
         $school_id = $request->school_id;
         $student_id = $request->student_id;
+        $parent_id = $request->parent_id;
         $start_date = $request->start_date;
         $end_date = $request->end_date;
         $limit = $request->limit ?? 20;
@@ -31,6 +32,14 @@ class MeasurementController extends Controller
 
         if ($school_id) {
             $query->where('students.school_id', $school_id);
+        }
+
+        if (!$parent_id && $user?->role == 'parent') {
+            $parent_id = $user->id;
+        }
+
+        if ($parent_id) {
+            $query->where('students.parent_id', $parent_id);
         }
 
         if ($student_id) {
