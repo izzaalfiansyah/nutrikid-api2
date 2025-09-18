@@ -1,0 +1,1070 @@
+{
+  "info": {
+    "_postman_id": "a8f5b94a-2b4a-4b9a-9b0a-2e2b8a2b1a1a",
+    "name": "Nutrikid API",
+    "description": "A collection of API endpoints for the Nutrikid application.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "email": "user@example.com",
+  "password": "password"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "name": "John Doe",
+  "email": "user@example.com"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "old_password": "password",
+  "new_password": "new_password"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/change-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/refresh-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/user",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/user/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "password": "password"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "name": "Jane Doe",
+  "email": "jane@example.com"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/user/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change User Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "password": "new_password"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/1/change-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user",
+                "1",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "School",
+      "item": [
+        {
+          "name": "Get Schools",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/school",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "school"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create School",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "name": "Example School"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/school",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "school"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update School",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "name": "Updated School Name"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/school/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "school",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete School",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/school/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "school",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Student",
+      "item": [
+        {
+          "name": "Get Students",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/student",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "student"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Student",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/student/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "student",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "name": "John Doe",
+  "age": 5,
+  "school_id": 1
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/student",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "student"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "name": "John Doe",
+  "age": 6
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/student/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "student",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/student/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "student",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Measurement",
+      "item": [
+        {
+          "name": "Get Measurements",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/measurement",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Measurement",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/measurement/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Measurement",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "student_id": 1,
+  "weight": 20,
+  "height": 110
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/measurement",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Measurement",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "weight": 21,
+  "height": 111
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/measurement/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Measurement",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/measurement/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Measurement Suggestion",
+      "item": [
+        {
+          "name": "Get Suggestions for Measurement",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/measurement/1/suggestion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement",
+                "1",
+                "suggestion"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Suggestion for Measurement",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "suggestion": "Eat more vegetables"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/measurement/1/suggestion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement",
+                "1",
+                "suggestion"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Suggestion for Measurement",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "suggestion": "Eat more fruits and vegetables"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/measurement/1/suggestion/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement",
+                "1",
+                "suggestion",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Suggestion for Measurement",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/measurement/1/suggestion/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement",
+                "1",
+                "suggestion",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Measurement Suggestions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/measurement-suggestion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement-suggestion"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Measurement Suggestion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "suggestion": "Eat more vegetables"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/measurement-suggestion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement-suggestion"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Measurement Suggestion",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "suggestion": "Eat more fruits and vegetables"
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/measurement-suggestion/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement-suggestion",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Measurement Suggestion",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/measurement-suggestion/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "measurement-suggestion",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Team",
+      "item": [
+        {
+          "name": "Get Team",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/team",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "team"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Calculation",
+      "item": [
+        {
+          "name": "Calculate",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{
+  "birth_date": "2020-01-01",
+  "gender": "male",
+  "weight": 10,
+  "height": 80
+}"
+            },
+            "url": {
+              "raw": "{{base_url}}/calculate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "calculate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Default Z-Score",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/default-zscore",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "default-zscore"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "auth_token",
+      "value": ""
+    }
+  ]
+}

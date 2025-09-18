@@ -1,61 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Nutrikid API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Nutrikid API is a Laravel-based application that provides a backend for the Nutrikid application. This API is used to manage data related to child nutrition, including measurements, suggestions, and user data.
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+To get started with the Nutrikid API, you need to have PHP, Composer, and a database (such as MySQL or PostgreSQL) installed on your system.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1.  **Clone the repository:**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    ```bash
+    git clone https://github.com/your-username/nutrikid-laravel.git
+    ```
 
-## Learning Laravel
+2.  **Install dependencies:**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    ```bash
+    composer install
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3.  **Create a copy of the `.env` file:**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    cp .env.example .env
+    ```
 
-## Laravel Sponsors
+4.  **Generate an application key:**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```bash
+    php artisan key:generate
+    ```
 
-### Premium Partners
+## Configuration
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1.  **Database:**
 
-## Contributing
+    Open the `.env` file and update the database configuration:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    ```
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=nutrikid
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
-## Code of Conduct
+2.  **Run migrations:**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```bash
+    php artisan migrate
+    ```
 
-## Security Vulnerabilities
+## Usage
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+To run the application, you can use the following command:
 
-## License
+```bash
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This will start a development server at `http://localhost:8000`.
+
+## API Endpoints
+
+The following are the available API endpoints:
+
+*   `POST /login`: User login.
+*   `GET /logout`: User logout.
+*   `GET /profile`: Get the current user's profile.
+*   `POST /profile`: Update the current user's profile.
+*   `POST /change-password`: Change the current user's password.
+*   `POST /refresh-token`: Refresh the authentication token.
+*   `POST /user/{id}/change-password`: Change a user's password.
+*   `GET /user`: Get a list of users.
+*   `GET /user/{id}`: Get a specific user.
+*   `POST /user`: Create a new user.
+*   `PUT /user/{id}`: Update a user.
+*   `DELETE /user/{id}`: Delete a user.
+*   `GET /school`: Get a list of schools.
+*   `POST /school`: Create a new school.
+*   `PUT /school/{id}`: Update a school.
+*   `DELETE /school/{id}`: Delete a school.
+*   `GET /student`: Get a list of students.
+*   `GET /student/{id}`: Get a specific student.
+*   `POST /student`: Create a new student.
+*   `PUT /student/{id}`: Update a student.
+*   `DELETE /student/{id}`: Delete a student.
+*   `GET /measurement`: Get a list of measurements.
+*   `GET /measurement/{id}`: Get a specific measurement.
+*   `POST /measurement`: Create a new measurement.
+*   `PUT /measurement/{id}`: Update a measurement.
+*   `DELETE /measurement/{id}`: Delete a measurement.
+*   `GET /measurement/{measurementId}/suggestion`: Get a list of suggestions for a measurement.
+*   `POST /measurement/{measurementId}/suggestion`: Create a new suggestion for a measurement.
+*   `PUT /measurement/{measurementId}/suggestion/{id}`: Update a suggestion for a measurement.
+*   `DELETE /measurement/{measurementId}/suggestion/{id}`: Delete a suggestion for a measurement.
+*   `GET /measurement-suggestion`: Get a list of measurement suggestions.
+*   `POST /measurement-suggestion`: Create a new measurement suggestion.
+*   `PUT /measurement-suggestion/{id}`: Update a measurement suggestion.
+*   `DELETE /measurement-suggestion/{id}`: Delete a measurement suggestion.
+*   `GET /team`: Get a list of team members.
+*   `POST /calculate`: Calculate the nutritional status of a child.
+*   `GET /default-zscore`: Get the default z-score data.
+
+For more details on the API endpoints, please refer to the source code.
+
+## Testing with Postman
+
+[Postman](https://www.postman.com/) is a popular tool for testing APIs. It allows you to send requests to the API endpoints and view the responses.
+
+To make it easier to test the Nutrikid API, we have provided a Postman collection that includes all the available endpoints. You can import this collection into Postman by following these steps:
+
+1.  Open Postman and click the "Import" button.
+2.  Select the `nutrikid-api.postman_collection.json` file from the root of the project.
+3.  Once the collection is imported, you can start making requests to the API.
+
+### Authentication
+
+Most of the API endpoints require authentication. To authenticate your requests, you need to obtain an authentication token by sending a `POST` request to the `/login` endpoint with your email and password.
+
+Once you have obtained a token, you can add it to the `auth_token` variable in the Postman collection. This will automatically add the `Authorization` header to all the requests in the collection.
